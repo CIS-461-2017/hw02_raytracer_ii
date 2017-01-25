@@ -11,8 +11,8 @@ by mirrored surfaces and the light transmitted by transparent surfaces.
 Additionally, you will add some code to make your ray tracer execute on multiple
 CPU cores at once to speed its render time.
 
-You should copy your code from homework 1 into the repository you clone for this
-assignment.
+__<span style="color:#FF3333">You should copy your code from homework 1 into the
+repository you clone for this assignment.</span>__
 
 Phong Material (10 points)
 -------------------------
