@@ -14,7 +14,34 @@ CPU cores at once to speed its render time.
 __<span style="color:#FF3333">You should copy your code from homework 1 into the
 repository you clone for this assignment.</span>__
 
-Phong Material (10 points)
+Multithreading (15 points)
+---------------------
+(You may implement this section independently of all the others, so don't feel
+the need to implement it first just because it's listed first).
+
+In order to make your ray tracer render images in a timely manner, you will
+alter the body of `MyGL::RaytraceScene` so that your program processes several
+pixels of your image at the same time. You will use Qt's `QThreadPool` and
+`QRunnable` classes in order to achieve this. We have provided you with
+a `RenderTask` class in `rendertask.h`; you must implement its `run` function
+in order to have it write pixel colors to your film.
+
+In `RaytraceScene`, you should divide your image into 16x16 pixel chunks and
+make a `RenderTask` to process each chunk. If your image has a dimension that
+is not divisible by 16, then make the last chunk in a row or column truncated
+to some size smaller than 16x16. You should use a double-nested `for` loop to
+create your `RenderTask`s and call
+`QThreadPool::globalInstance()->start(<Your RenderTask Goes Here>)`. This will
+instantiate a `QThread` to execute the `run` function of your `RenderTask`. Note
+that your `for` loop will wait to `start` a `RenderTask` if there are no CPU
+cores available to process a `QThread`; this is the advantage of using Qt's
+built-in thread manager class.
+
+You can find the documentation for `QThreadPool`
+[here](https://doc.qt.io/qt-5/qthreadpool.html#details). We recommend reading
+it to better understand what you are supposed to do for this section.
+
+Phong Material (5 points)
 -------------------------
 Implement the body of
 `PhongMaterial::EvaluateReflectedEnergy` such that it returns the color that
@@ -38,7 +65,7 @@ by the material's base color regardless of reflectivity interpolation. Note
 that you may have to alter the function signature of
 `EvaluateReflectedEnergy` to allow you to call `TraceRay` from within.
 
-Specular Transmission (35 points)
+Specular Transmission (25 points)
 -------------------
 If a `Material` has non-zero indices of refraction (`refract_idx_in` and
   `refract_idx_out`), then it should be treated as a specular transmissive
@@ -131,6 +158,18 @@ additional method beyond the first can earn you up to 3 additional points.
 #### Normal Mapping (15 points)
 Implement tangent-space normal mapping on surfaces using the images we provided
 you in the `scene_files` folder of the previous homework assignment.
+
+#### Super-Sampled Anti Aliasing (Up to 15 points)
+Rather than casting one ray per pixel, cast several rays per pixel and average
+their colors together. You should cast each ray through a different portion of
+their pixel; for example, if your pixel were at (200, 200), you might ray cast
+through (200.25, 200.25), (200.5, 200.25), (200.5, 200.5), and (200.25, 200.5).
+Like with soft shadows, there are a few different super-sampling distributions
+you might implement; we leave it up to you as to which you wish to use. If you
+implement one sampling method, you will earn 9 points. Each additional method
+beyond the first can earn you up to 3 additional points. However, if you have
+implemented soft shadows _and_ anti aliasing, you can only earn a maximum of
+20 points combined between the two sections.
 
 #### "Realistic" Shadows for Transmissive Surfaces (8 points)
 A ray tracer is not capable of realistically representing the shadows cast by
