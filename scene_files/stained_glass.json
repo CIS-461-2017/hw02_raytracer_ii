@@ -1,0 +1,106 @@
+{
+  "scene": {
+    "camera": {
+      "target": [0, 0, 0],
+      "eye": [10, 10, 10],
+      "worldUp": [0, 1, 0],
+      "fov": 50,
+      "width": 400,
+      "height": 400
+    },
+    "geometry": [
+      {
+        "type": "square",
+        "name": "Floor",
+        "transform": {
+          "translate": [0, 0, 0],
+          "rotate": [-90, 0, 0],
+          "scale": [20, 20, 1]
+        },
+        "material": "white_diffuse"
+      },
+      {
+        "type": "square",
+        "name": "Wall_L",
+        "transform": {
+          "translate": [-10, 10, 0],
+          "rotate": [0, 90, 0],
+          "scale": [20, 20, 1]
+        },
+        "material": "white_diffuse"
+      },
+      {
+        "type": "square",
+        "name": "Wall_U",
+        "transform": {
+          "translate": [0, 10, -10],
+          "rotate": [0, 0, 0],
+          "scale": [20, 20, 1]
+        },
+        "material": "white_diffuse"
+      },
+      {
+        "type": "square",
+        "name": "Light Source",
+        "transform": {
+          "translate": [0, 5, 10],
+          "rotate": [180, 0, 0],
+          "scale": [2, 2, 1]
+        },
+        "material": "emissive_material"
+      },
+      {
+        "type": "square",
+        "name": "Stained Glass Textured",
+        "transform": {
+          "translate": [-2, 2.5, 5],
+          "rotate": [0, 0, 0],
+          "scale": [5, 5, 1]
+        },
+        "material": "textured_glass"
+      },
+      {
+        "type": "square",
+        "name": "Stained Glass Colored",
+        "transform": {
+          "translate": [2, 2.5, 7],
+          "rotate": [0, 0, 0],
+          "scale": [5, 5, 1]
+        },
+        "material": "colored_glass"
+      }
+    ],
+    "material": [
+      {
+        "type": "lambert",
+        "name": "white_diffuse",
+        "baseColor": [1, 1, 1]
+      },
+      {
+        "type": "lambert",
+        "name": "textured_glass",
+        "baseColor": [1, 1, 1],
+        "iorIn": 1,
+        "iorOut": 1,
+        "texture": "tex_nor_maps/171.jpg"
+      },
+      {
+        "type": "lambert",
+        "name": "colored_glass",
+        "baseColor": [0.5, 1, 0.5],
+        "iorIn": 1,
+        "iorOut": 1
+      },
+      {
+        "type": "lambert",
+        "name": "emissive_material",
+        "baseColor": [1, 1, 1],
+        "emissive": "true"
+      }
+    ],
+    "integrator": {
+      "type": "raytrace",
+      "maxDepth": 5
+    }
+  }
+}
