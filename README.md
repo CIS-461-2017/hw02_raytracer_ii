@@ -155,10 +155,6 @@ one method, please upload renders of each and compare the quality of the
 shadows. If you implement one sampling method, you will earn 9 points. Each
 additional method beyond the first can earn you up to 3 additional points.
 
-#### Normal Mapping (15 points)
-Implement tangent-space normal mapping on surfaces using the images we provided
-you in the `scene_files` folder of the previous homework assignment.
-
 #### Super-Sampled Anti Aliasing (Up to 15 points)
 Rather than casting one ray per pixel, cast several rays per pixel and average
 their colors together. You should cast each ray through a different portion of
@@ -171,6 +167,10 @@ beyond the first can earn you up to 3 additional points. However, if you have
 implemented soft shadows _and_ anti aliasing, you can only earn a maximum of
 20 points combined between the two sections.
 
+#### Normal Mapping (15 points)
+Implement tangent-space normal mapping on surfaces using the images we provided
+you in the `scene_files` folder of the previous homework assignment.
+
 #### "Realistic" Shadows for Transmissive Surfaces (8 points)
 A ray tracer is not capable of realistically representing the shadows cast by
 transmissive surfaces, but it is possible to fake them. Rather than just
@@ -180,6 +180,15 @@ a shadow feeler ray would have traveled within the transparent object before
 being refracted back out; the __less far__ a ray travels, the darker the shadow.
 This method results in nicer looking shadows cast by transparent objects, but is
 in no way based in physical reality.
+
+#### Environment Mapping (10 points)
+When a ray reflected off a specular mirrored surface would hit no geometry at
+all, rather than coloring it black you should intersect the ray with an
+environment map and color it based on the texture of the map. We have not
+provided you with images that are particularly suited for environment maps, but
+we do have some links to image resources:
+* [Sky boxes](http://texturify.com/category/sky-backgrounds.html)
+* [Environment maps](http://texturify.com/category/environment-panoramas.html)
 
 Submitting your project
 --------------
