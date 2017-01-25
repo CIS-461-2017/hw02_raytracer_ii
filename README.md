@@ -106,13 +106,9 @@ Results of rendering `transparent_containing_objects.json`
 
 ![](./all_features.bmp)![](./all_features_labeled.png)
 
-Correct result of rendering `transparent_shadow_test.json`:
+Correct result of rendering `transparent_shadow_test.json`:     Incorrect result of rendering `transparent_shadow_test.json`:
 
-![](./shadow_caster_sort_test_correct.bmp)
-
-Incorrect result of rendering `transparent_shadow_test.json`:
-
-![](./shadow_caster_sort_test_incorrect.bmp)
+![](./shadow_caster_sort_test_correct.bmp)![](./shadow_caster_sort_test_incorrect.bmp)
 
 Result of rendering `stained_glass.json`:
 
