@@ -91,6 +91,11 @@ medium, it may be reflected back into the object it is leaving rather than being
 refracted outwards. Make sure you test if this should occur using the critical
 angle formula, and reflect the ray instead of refracting it if this is indeed
 the case.
+* The example renders in the section at the bottom of this document contain
+transmissive surfaces that do not exhibit glossy specular highlights, even if
+they are made of Phong materials. We do not require you to include highlights on
+transmissive surfaces, but you are free to do so if you wish to make your
+renders appear a little more "realistic".
 
 Shadows Cast by Transmissive Objects (15 points)
 -------------------
