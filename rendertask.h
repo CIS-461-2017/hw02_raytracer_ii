@@ -20,7 +20,7 @@ public:
 
 private:
 	Camera const * const camera;			// A pointer to the Camera instance stored in MyGL.
-	Film const * const film;				// A pointer to the Film instance stored in MyGL.
+	Film * const film;						// A pointer to the Film instance stored in MyGL.
 	Integrator const * const integrator; 	// A pointer to the Integrator instance stored in MyGL
 											// You may need to const-ify a few functions in these classes
 											// in order to use these pointers as necessary.
